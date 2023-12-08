@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/css/style.css" />
     <title>Coding Quiz</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Coding Quiz Challenge</h1>
 
     <!-- Add quiz instructions -->
     <!-- Create a Start button -->
     <button id="start-button">START QUIZ</button>
 
+    <!-- Timer -->
+    <h3 id="time"></h3>
+    <div id="quiz">
+      <h1>Question: <span id="question-text"></span></h1>
+      <h2>Answers: <span id="answers-text"></span></h2>
+    </div>
+    
+
+    <!-- End Game -->
+    <div id="end-game">
+      <h1>All done!</h1>
+      <h2 id="score"></h2>
+      <form>
+        <label for="initials">Enter your intials here:</label>
+        <input type="text" id="initials" name="initials" />
+        <input type="submit" value="Submit" id="submit" />
+      </form>
+    </div>
+
+    <!-- Highscore Display -->
+    <div id="highscore">
+      <h1>High Scores:</h1>
+      <p id="display"></p>
+    </div>
 
     <script type="text/javascript" src="Assets/js/script.js"></script>
-    
-</body>
+  </body>
 </html>
