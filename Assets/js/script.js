@@ -1,5 +1,6 @@
 var startBtn = document.querySelector("#start-button");
 var timeEl = document.querySelector("#time");
+var introEl = document.querySelector(".intro");
 var quizEl = document.querySelector("#quiz");
 var questionText = document.querySelector("#question-text");
 var answerText = document.querySelector("#answers-text");
@@ -10,19 +11,29 @@ var initials = document.querySelector("#initials");
 
 var questions = [
   {
-    question: "What color is the sky?",
-    answers: ["blue", "white", "yellow"],
-    correctAnswer: "blue",
+    question: "Which type of dialog box is used to display a message and a data entry field?",
+    answers: ["1. Alert ()", "2. Prompt()", "3. Confirm()", "4. Msg()"],
+    correctAnswer: "2. Prompt()",
   },
   {
-    question: "Which one of these is a for loop?",
-    answers: ["one", "Two", "three"],
-    correctAnswer: "one",
+    question: "Which one of these represents a for loop?",
+    answers: ["1. ", "2. ", "3. ", "4. (i = 0; i < length; i++)"],
+    correctAnswer: "4. (i = 0; i < length; i++)",
+  },
+  {
+    question: "Which of these is NOT a logical operator?",
+    answers: ["1. !", "2. &", "3. &&", "4. ||"],
+    correctAnswer: "2. &",
+  },
+  {
+    question: "What does the .split('') method do?",
+    answers: ["1. Turn a string into an array", "2. Turn objects into properties", "3. Turn an array into a string", "4. Turn a string into numbers"],
+    correctAnswer: "1. Turn a string into an array",
   },
 ];
 
 var currentQuestionIdx = 0;
-var timeLeft = 5;
+var timeLeft = 75;
 
 function startQuiz() {
   var timeInterval = setInterval(function () {
@@ -34,6 +45,7 @@ function startQuiz() {
     }
   }, 1000);
   startBtn.style.display = "none";
+  introEl.style.display = "none";
   quizEl.style.display = "block";
 
   nextQuestion();
@@ -61,10 +73,10 @@ function endGame() {
 
 function displayScore() {
   var value = localStorage.getItem("endScore");
-  var displayScore = document.getElementById('display');
+  var displayScore = document.getElementById("display");
   displayScore.textContent = value;
 
-//  display "highscore"
+  //  display "highscore"
   // Add clear and go back buttons
 }
 
@@ -105,6 +117,4 @@ submitBtn.addEventListener("click", function () {
   localStorage.setItem("endScore", timeLeft);
   localStorage.setItem("initials", initials.value);
   displayScore();
-
-
 });

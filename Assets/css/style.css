@@ -1,4 +1,50 @@
+:root {
+    --purple: rgb(96, 27, 160);
+}
+
 #quiz, #end-game, #highscore {
     display:none
 }
 
+.title, .intro {
+    text-align: center;
+    font-weight: bold;
+}
+
+.intro {
+    display: flexbox;
+    justify-content: center;
+  
+    padding: 30px;
+}
+
+#start-button {
+    background-color: var(--purple);
+    color: white;
+    border-radius: 10%;
+    font-size: 17px;
+    padding: 10px;
+    margin-left: 30px;
+
+}
+
+#time {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.answers-text {
+    background-color: var(--purple);
+    color: white;
+    border-radius: 10%;
+    display: block;
+    padding: 8px;
+    text-align: center;
+    font-size: 16px;
+    margin: 7px;
+}
+
+#highscore, #display {
+    text-align: center;
+}
