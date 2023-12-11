@@ -64,7 +64,7 @@
     cursor: pointer;
 }
 
-#end-game, #score {
+#end-game, #score, #highscore, #display {
     text-align: center;
 }
 
@@ -72,10 +72,6 @@
     background-color: var(--purple);
     color: white;
     border-radius: 10%;
-}
-
-#highscore, #display {
-    text-align: center;
 }
 
 #display {

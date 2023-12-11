@@ -6,10 +6,11 @@ var questionText = document.querySelector("#question-text");
 var answerText = document.querySelector("#answers-text");
 var scoreText = document.querySelector("#end-game");
 var finalScore = document.querySelector("#score");
+var displayScore = document.getElementById("display");
 var submitBtn = document.querySelector("#submit");
 var initials = document.querySelector("#initials");
-// var startOverBtn = document.querySelector(".start-over");
-// var clearBtn = document.querySelector(".clear");
+var startOverBtn = document.querySelector(".start-over");
+var clearBtn = document.querySelector(".clear");
 
 // Array of questions and answers
 var questions = [
@@ -48,7 +49,7 @@ var questions = [
 
 var currentQuestionIdx = 0;
 var timeLeft = 75;
-var timeInterval
+var timeInterval;
 
 function startQuiz() {
   // Starts the timer and ends the game when it reaches "0"
@@ -70,7 +71,7 @@ function startQuiz() {
 }
 
 function nextQuestion() {
-  // Checks to see if there are any more questions in the 'questions' array.
+  // Checks to see if there are any more questions in the 'questions' array. If not, endGame is called.
   if (currentQuestionIdx >= questions.length) {
     endGame();
   }
@@ -100,15 +101,12 @@ function endGame() {
 }
 
 // Gets values of endScore and initials, and displays them as highscores.
-function displayScore() {
+function showScore() {
   var value = localStorage.getItem("endScore");
   initials = localStorage.getItem("initials");
-  var displayScore = document.getElementById("display");
   var highScore = document.querySelector("#highscore");
   highScore.style.display = "block";
   displayScore.textContent = initials + " - " + value;
-  
-  // Add clear and go back buttons
 }
 
 // Starts the game
@@ -116,7 +114,7 @@ startBtn.addEventListener("click", function () {
   startQuiz();
 });
 
-// Checks to see if what the user clicked matches the correct answer
+// Checks to see if what the user clicked matches the correct answer.
 answerText.addEventListener("click", function (e) {
   var clickedBtnValue = e.target.value;
   if (clickedBtnValue === questions[currentQuestionIdx].correctAnswer) {
@@ -140,8 +138,16 @@ submitBtn.addEventListener("click", function () {
   finalScore.textContent = "";
   localStorage.setItem("endScore", timeLeft);
   localStorage.setItem("initials", initials.value);
-  displayScore();
+  showScore();
 });
 
-// startOverBtn.addEventListener("click", startQuiz());
-// clearBtn.addEventListener("click", localStorage.clear());
+// Returns user to the home page.
+startOverBtn.addEventListener("click", function () {
+  location.href = 'index.html';
+});
+
+// Clears high score and local storage.
+clearBtn.addEventListener("click", function () {
+  localStorage.clear();
+  displayScore.style.display = "none";
+});
