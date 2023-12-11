@@ -1,3 +1,4 @@
+// Global variables
 var startBtn = document.querySelector("#start-button");
 var timeEl = document.querySelector("#time");
 var introEl = document.querySelector(".intro");
@@ -11,8 +12,6 @@ var submitBtn = document.querySelector("#submit");
 var initials = document.querySelector("#initials");
 var startOverBtn = document.querySelector(".start-over");
 var clearBtn = document.querySelector(".clear");
-
-// Array of questions and answers
 var questions = [
   {
     question:
@@ -45,11 +44,33 @@ var questions = [
     ],
     correctAnswer: "1. Turn a string into an array",
   },
+  {
+    question: "What does event.preventDefault do?",
+    answers: [
+      "1. Prevents the page from returning to the home page",
+      "2. When a button is clicked, it will default the page to it's original settings",
+      "3. Overrides default browser event behavior",
+      "4. Nothing",
+    ],
+    correctAnswer: "3. Overrides default browser event behavior",
+  },
+  {
+    question: "What is the syntax for setting a timer?",
+    answers: [
+      "1. setInterval()",
+      "2. getAttribute()",
+      "3. clearInterval()",
+      "4. setTimer()",
+    ],
+    correctAnswer: "1. setInterval()",
+  },
 ];
 
 var currentQuestionIdx = 0;
 var timeLeft = 75;
 var timeInterval;
+
+// Functions
 
 function startQuiz() {
   // Starts the timer and ends the game when it reaches "0"
@@ -61,7 +82,6 @@ function startQuiz() {
       endGame();
     }
   }, 1000);
-
   // The start button and instructions disappear, and the first questions object appears.
   startBtn.style.display = "none";
   introEl.style.display = "none";
@@ -109,6 +129,8 @@ function showScore() {
   displayScore.textContent = initials + " - " + value;
 }
 
+// Event listeners
+
 // Starts the game
 startBtn.addEventListener("click", function () {
   startQuiz();
@@ -143,7 +165,7 @@ submitBtn.addEventListener("click", function () {
 
 // Returns user to the home page.
 startOverBtn.addEventListener("click", function () {
-  location.href = 'index.html';
+  location.href = "index.html";
 });
 
 // Clears high score and local storage.
