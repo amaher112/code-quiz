@@ -1,5 +1,6 @@
 :root {
     --purple: rgb(96, 27, 160);
+    --light-purple: rgb(116, 77, 153);
 }
 
 #quiz, #end-game, #highscore {
@@ -8,14 +9,22 @@
 
 .title, .intro {
     text-align: center;
-    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.title {
+    font-style: oblique;
 }
 
 .intro {
-    display: flexbox;
-    justify-content: center;
-  
     padding: 30px;
+    font-size: large;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #start-button {
@@ -24,8 +33,14 @@
     border-radius: 10%;
     font-size: 17px;
     padding: 10px;
-    margin-left: 30px;
+}
 
+.start-over, .clear {
+    background-color: var(--purple);
+    color: white;
+    border-radius: 10%;
+    padding: 10px;
+    margin: 6%;
 }
 
 #time {
@@ -40,11 +55,34 @@
     border-radius: 10%;
     display: block;
     padding: 8px;
-    text-align: center;
     font-size: 16px;
     margin: 7px;
 }
 
+.answers-text:hover {
+    background-color: var(--light-purple);
+    cursor: pointer;
+}
+
+#end-game, #score {
+    text-align: center;
+}
+
+#submit {
+    background-color: var(--purple);
+    color: white;
+    border-radius: 10%;
+}
+
 #highscore, #display {
     text-align: center;
+}
+
+#display {
+    background-color: var(--light-purple);
+    color: white;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 1%;
+    font-size: 20px;
 }

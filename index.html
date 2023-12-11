@@ -9,18 +9,19 @@
   <body>
     <h1 class="title">Coding Quiz Challenge</h1>
 
-    <!-- Add quiz instructions -->
     <p class="intro">
-      Insert instructions here
-      <!-- Create a Start button -->
-      <button id="start-button">START QUIZ</button>
+      Put your JavaScript knowledge to the test with this quiz! Try to answer
+      all the questions within the timeframe given. Each incorrect answer will
+      subtract 10 seconds from the timer. Good luck!
     </p>
+    <!-- Create a Start button -->
+    <div class="container"><button id="start-button">START QUIZ</button></div>
 
     <!-- Timer -->
     <h3 id="time"></h3>
     <div id="quiz">
-      <h1 id="question-text"></h1>
-      <h2 id="answers-text"></h2>
+      <h2 id="question-text"></h2>
+      <h3 id="answers-text"></h3>
     </div>
 
     <!-- End Game -->
@@ -38,6 +39,10 @@
     <div id="highscore">
       <h1>High Scores:</h1>
       <p id="display"></p>
+      <div class="container">
+        <button class="start-over">START OVER</button>
+        <button class="clear">CLEAR HIGHSCORE</button>
+      </div>
     </div>
 
     <script type="text/javascript" src="Assets/js/script.js"></script>
